@@ -94,8 +94,10 @@ public class TwennValueActivity extends AppCompatActivity {
                 valueAnimator.setDuration(10000);
                 valueAnimator.setInterpolator(new LinearInterpolator());
                 valueAnimator.setObjectValues(new PointF(0, 0));
+                //自定义估值器
                 valueAnimator.setEvaluator(new TypeEvaluator() {
                     @Override
+                    //第一个参数代表时间流逝的百分比，也可以理解我当前估值器的瞬时速度 ，后面两个参数没比较简单
                     public Object evaluate(float fraction, Object startValue, Object endValue) {
                         Log.e("fraction", fraction * 3 + "");
                         PointF point = new PointF();
